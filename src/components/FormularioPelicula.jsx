@@ -3,7 +3,7 @@ import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 
 const FormularioPelicula = ({ crearPelicula }) => {
-  conts[(pelicula, setPelicula)] = useState({
+  const [pelicula, setPelicula] = useState({
     nombre: "",
     descripcion: "",
     genero: "",
