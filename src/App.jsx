@@ -5,15 +5,13 @@ import { useEffect, useState } from "react";
 import ArticuloPelicula from "./components/ArticuloPelicula";
 
 function App() {
-  const peliculaLocalStorage =
+  let peliculaLocalStorage =
     JSON.parse(localStorage.getItem("peliculas")) || [];
   const [peliculasApp, setPeliculasApp] = useState(peliculaLocalStorage);
 
-  useEffect =
-    (() => {
-      localStorage.setItem("peliculas", JSON.stringify(peliculasApp));
-    },
-    [peliculasApp]);
+  useEffect(() => {
+    localStorage.setItem("peliculas", JSON.stringify(peliculasApp));
+  }, [peliculasApp]);
 
   const crearPelicula = (pelicula) => {
     setPeliculasApp([...peliculasApp, pelicula]);
@@ -27,7 +25,7 @@ function App() {
       setPeliculasApp(crearNuevaPelicula);
     }
   };
-  const msj = "no hay oeliculas";
+  const msj = "no hay peliculas";
   return (
     <>
       <div className="text-center text-danger">
@@ -38,12 +36,12 @@ function App() {
         <div className="text-center mt-5 display-6 text-light "> {msj}</div>
       ) : (
         <section className="d-flex justify-content-between mt-5 container">
-          {peliculasApp.map((pelicula, index) => (
-            <ArticuloPelicula>
+          {peliculasApp.map((pelicula) => (
+            <ArticuloPelicula
               borrarPelicula={borrarPelicula}
-              key={index}
-              cita={pelicula}
-            </ArticuloPelicula>
+              key={pelicula.id}
+              pelicula={pelicula}
+            ></ArticuloPelicula>
           ))}
         </section>
       )}

@@ -5,10 +5,10 @@ const ArticuloPelicula = ({ pelicula, borrarPelicula }) => {
   return (
     <Card style={{ width: "18rem" }}>
       <Card.Body>
-        <Card.Title>{cita.nombre}</Card.Title>
+        <Card.Title>{pelicula.nombre}</Card.Title>
         <Card.Text>
-          {cita.descripcion}
-          {cita.genero}
+          {pelicula.descripcion}
+          {pelicula.genero}
         </Card.Text>
         <Button variant="danger" onClick={() => borrarPelicula(pelicula.id)}>
           borrar Pelicula
