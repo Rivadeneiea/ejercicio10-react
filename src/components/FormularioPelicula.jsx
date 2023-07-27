@@ -2,7 +2,7 @@ import { useState } from "react";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 
-const FormularioPelicula = () => {
+const FormularioPelicula = ({ crearPelicula }) => {
   conts[(pelicula, setPelicula)] = useState({
     nombre: "",
     descripcion: "",
@@ -15,9 +15,15 @@ const FormularioPelicula = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     pelicula.id = new Date().getTime();
+    crearPelicula(pelicula);
+    setPelicula({
+      nombre: "",
+      descripcion: "",
+      genero: "",
+    });
   };
   return (
-    <Form className="container">
+    <Form className="container" onSubmit={handleSubmit}>
       <Form.Group className="mb-3" controlId="formBasicEmail">
         <Form.Label>Nombre</Form.Label>
         <Form.Control
@@ -51,7 +57,7 @@ const FormularioPelicula = () => {
       </Form.Group>
 
       <Button variant="primary" type="submit">
-        Submit
+        Agregar pelicula
       </Button>
     </Form>
   );
