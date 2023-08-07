@@ -3,6 +3,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import FormularioPelicula from "./components/FormularioPelicula";
 import { useEffect, useState } from "react";
 import ArticuloPelicula from "./components/ArticuloPelicula";
+import Footer from "./components/Footer";
 
 function App() {
   let peliculaLocalStorage =
@@ -33,7 +34,7 @@ function App() {
       </div>
       <FormularioPelicula crearPelicula={crearPelicula}></FormularioPelicula>
       {peliculasApp.length === 0 ? (
-        <div className="text-center mt-5 display-6 text-light "> {msj}</div>
+        <div className="text-center my-5 display-6 text-light "> {msj}</div>
       ) : (
         <section className="d-flex justify-content-between mt-5 container">
           {peliculasApp.map((pelicula) => (
@@ -45,6 +46,7 @@ function App() {
           ))}
         </section>
       )}
+      <Footer />
     </>
   );
 }
